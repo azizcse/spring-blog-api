@@ -1,4 +1,4 @@
-package com.example.simplecrud.model;
+package com.example.simplecrud.payload;
 
 import java.io.Serializable;
 

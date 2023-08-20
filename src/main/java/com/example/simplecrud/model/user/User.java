@@ -1,5 +1,9 @@
 package com.example.simplecrud.model.user;
 
+import com.example.simplecrud.model.Album;
+import com.example.simplecrud.model.Comment;
+import com.example.simplecrud.model.Post;
+import com.example.simplecrud.model.Todo;
 import com.example.simplecrud.model.audit.DateAudit;
 import com.example.simplecrud.model.role.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -72,7 +76,7 @@ public class User extends DateAudit {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 	private List<Role> roles;
 
-	/*@JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Todo> todos;
 
@@ -86,7 +90,7 @@ public class User extends DateAudit {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Comment> comments;*/
+	private List<Comment> comments;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "company_id")
@@ -117,7 +121,7 @@ public class User extends DateAudit {
 				'}';
 	}
 
-/*	public List<Todo> getTodos() {
+	public List<Todo> getTodos() {
 
 		return todos == null ? null : new ArrayList<>(todos);
 	}
@@ -158,7 +162,7 @@ public class User extends DateAudit {
 		} else {
 			this.posts = Collections.unmodifiableList(posts);
 		}
-	}*/
+	}
 
 	public List<Role> getRoles() {
 
@@ -174,7 +178,7 @@ public class User extends DateAudit {
 		}
 	}
 
-/*	public List<Comment> getComments() {
+	public List<Comment> getComments() {
 		return comments == null ? null : new ArrayList<>(comments);
 	}
 
@@ -185,5 +189,5 @@ public class User extends DateAudit {
 		} else {
 			this.comments = Collections.unmodifiableList(comments);
 		}
-	}*/
+	}
 }

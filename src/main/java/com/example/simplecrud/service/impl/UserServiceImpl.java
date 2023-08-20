@@ -1,5 +1,6 @@
 package com.example.simplecrud.service.impl;
 
+import com.example.simplecrud.payload.UserIdentityAvailability;
 import com.example.simplecrud.payload.UserSummary;
 import com.example.simplecrud.repository.UserRepository;
 import com.example.simplecrud.security.UserPrincipal;
@@ -15,5 +16,11 @@ public class UserServiceImpl implements UserService {
     public UserSummary getCurrentUser(UserPrincipal currentUser) {
         return new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getFirstName(),
                 currentUser.getLastName());
+    }
+
+    @Override
+    public UserIdentityAvailability checkUser(String email) {
+        Boolean isAvailable = !userRepository.existsByEmail(email);
+        return new UserIdentityAvailability(isAvailable);
     }
 }

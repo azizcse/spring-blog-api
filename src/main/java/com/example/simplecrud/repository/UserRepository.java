@@ -4,6 +4,7 @@ import com.example.simplecrud.exception.ResourceNotFoundException;
 import com.example.simplecrud.model.user.User;
 import com.example.simplecrud.security.UserPrincipal;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Optional;
